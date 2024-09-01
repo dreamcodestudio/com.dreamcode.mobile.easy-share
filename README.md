@@ -20,3 +20,5 @@ ShareService.SendBinaryContent(
                 sharedByActivity: packageName => { Debug.Log($"SendBinaryContent:{packageName}"); });
 
 ```
+
+https://github.com/user-attachments/assets/873a488f-ebed-4362-aa14-2d3794880172
