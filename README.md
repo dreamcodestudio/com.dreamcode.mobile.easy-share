@@ -22,3 +22,8 @@ ShareService.SendBinaryContent(
 ```
 
 https://github.com/user-attachments/assets/873a488f-ebed-4362-aa14-2d3794880172
+
+# ✉️ Contact
+[Telegram](https://t.me/dreamcestudio)
+
+[Email](mailto:dreamcodestudio@yandex.com)
