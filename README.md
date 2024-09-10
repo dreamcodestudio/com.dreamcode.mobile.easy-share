@@ -20,7 +20,43 @@ ShareService.SendBinaryContent(
                 sharedByActivity: packageName => { Debug.Log($"SendBinaryContent:{packageName}"); });
 
 ```
+### Android Setup
 
+To set up `FileProvider` for native sharing on Android, follow these steps.
+
+You need to define a `FileProvider` in your `AndroidManifest.xml` file by path:
+
+`Assets > Plugins > Android`
+
+Here's an example:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.unity3d.player"
+    xmlns:tools="http://schemas.android.com/tools">
+    <application>
+        <activity android:name="com.unity3d.player.UnityPlayerActivity"
+                  android:theme="@style/UnityThemeSelector">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
+        </activity>
+    
+    <provider android:name="androidx.core.content.FileProvider" android:authorities="com.IndieYP.JumpClub.jump.fall.hop.provider" android:exported="false" android:grantUriPermissions="true">
+      <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_provider_paths" />
+    </provider>
+
+    </application>
+</manifest>
+```
+
+`android:authorities` should be set to `${applicationId}.provider` where `applicationId` is your package name.
+
+# ✨ Showcase
 https://github.com/user-attachments/assets/873a488f-ebed-4362-aa14-2d3794880172
 
 # ✉️ Contact
