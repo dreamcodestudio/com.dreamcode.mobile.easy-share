@@ -63,3 +63,7 @@ https://github.com/user-attachments/assets/873a488f-ebed-4362-aa14-2d3794880172
 [Telegram](https://t.me/dreamcestudio)
 
 [Email](mailto:dreamcodestudio@yandex.com)
+
+# 🔑 License
+
+[Unity Asset Store EULA](https://unity.com/legal/as-terms)
