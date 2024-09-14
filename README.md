@@ -1,6 +1,8 @@
 # 🎯 What is EasyShare package?
 Lets users share content quickly and easily using their favorite apps.
 
+![card](https://github.com/user-attachments/assets/3cddca93-5565-4748-8c96-18090b66f0f6)
+
 # 💻 Usage
 ```csharp
 using DreamCode.EasyShare;
