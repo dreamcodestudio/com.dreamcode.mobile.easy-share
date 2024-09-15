@@ -1,5 +1,8 @@
 # Changelog
 
+## 2024-09-15
+- Added Share Samples
+
 ## 2024-09-10
 - Added Android Setup documentation 
 

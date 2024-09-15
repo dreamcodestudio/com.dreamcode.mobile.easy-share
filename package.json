@@ -1,7 +1,7 @@
 {
   "name": "com.dreamcode.mobile.easy-share",
   "displayName": "Easy Share",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "unity": "2019.1",
   "description": "Lets users share content quickly and easily using their favorite apps",
   "keywords": [
@@ -15,5 +15,17 @@
     "name": "DreamCode",
     "email": "dreamcodestudio@yandex.com",
     "url": "https://t.me/dream_code_studio"
-  }
+  },
+  "samples": [
+    {
+      "displayName": "Share Text",
+      "description": "Contains sample of sharing text",
+      "path": "Samples~/share-text"
+    },
+    {
+      "displayName": "Share Binary Content",
+      "description": "Contains sample of sharing binary content",
+      "path": "Samples~/share-binary-content"
+    }
+  ]
 }
