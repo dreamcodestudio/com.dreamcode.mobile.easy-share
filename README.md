@@ -1,7 +1,7 @@
 # 🎯 What is EasyShare package?
 Lets users share content quickly and easily using their favorite apps.
 
-![card](https://github.com/user-attachments/assets/3cddca93-5565-4748-8c96-18090b66f0f6)
+[![card](https://github.com/user-attachments/assets/3cddca93-5565-4748-8c96-18090b66f0f6)](https://assetstore.unity.com/packages/tools/integration/easy-share-289206)
 
 # 💻 Usage
 ```csharp
