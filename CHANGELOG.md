@@ -1,5 +1,8 @@
 # Changelog
 
+## 2024-12-10
+- Fixed undefined ld.lld symbol error
+
 ## 2024-09-15
 - Added Share Samples
 
