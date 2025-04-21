@@ -1,5 +1,8 @@
 # Changelog
 
+## 2025-04-21
+- Improved error handling and code documentation
+
 ## 2024-12-10
 - Fixed undefined ld.lld symbol error
 
