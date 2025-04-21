@@ -3,20 +3,27 @@ using UnityEngine;
 
 namespace DreamCode.EasyShare
 {
-    internal sealed class EditorShare : IShare
+    /// <summary>
+    /// Editor-specific implementation of the share functionality.
+    /// Provides mock sharing capabilities for testing in the Unity Editor.
+    /// </summary>
+    internal sealed class EditorShare : BaseShare
     {
-        private const string PackageName = "editor.package.name";
-
-        public void SendText(string message, Action<string>? callback)
+        protected override void PlatformSendText(string message, Action<string>? sharedByActivity)
         {
-            Debug.Log($"{nameof(EditorShare)}-{nameof(SendText)}");
-            callback?.Invoke(PackageName);
+            Debug.Log($"{ShareConstants.LogPrefix} [Editor] Sharing text: {message}");
+            sharedByActivity?.Invoke(ShareConstants.EditorPackageName);
         }
 
-        public void SendBinaryContent(string filePath, string mimeType, string message, Action<string>? callback)
+        protected override void PlatformSendBinaryContent(
+            string filePath,
+            string mimeType,
+            string message,
+            Action<string>? sharedByActivity)
         {
-            Debug.Log($"{nameof(EditorShare)}-{nameof(SendBinaryContent)}");
-            callback?.Invoke(PackageName);
+            Debug.Log(
+                $"{ShareConstants.LogPrefix} [Editor] Sharing file: {filePath} (MIME: {mimeType}) with message: {message}");
+            sharedByActivity?.Invoke(ShareConstants.EditorPackageName);
         }
     }
 }

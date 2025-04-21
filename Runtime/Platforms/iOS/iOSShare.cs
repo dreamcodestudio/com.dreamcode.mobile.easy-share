@@ -1,43 +1,73 @@
 using System;
+using UnityEngine;
 #if UNITY_IOS 
 using System.Runtime.InteropServices;
 #endif
 
 namespace DreamCode.EasyShare
 {
-    internal sealed class iOSShare : IShare
+    /// <summary>
+    /// iOS-specific implementation of the share functionality.
+    /// Provides native iOS sharing capabilities using native plugins.
+    /// </summary>
+    internal sealed class iOSShare : BaseShare
     {
-        private readonly iOSShareListener? _listener =
-            ListenerFactory.Create<iOSShareListener>();
-#if UNITY_IOS 
+        private readonly iOSShareListener? _listener = ListenerFactory.Create<iOSShareListener>();
+
+#if UNITY_IOS
         [DllImport("__Internal")]
         private static extern void _ES_SendText(string message);
+
         [DllImport("__Internal")]
         private static extern void _ES_SendBinaryContent(string message, string filePath);
 #endif
 
-        public void SendText(string message, Action<string>? callback)
+        protected override void PlatformSendText(string message, Action<string>? sharedByActivity)
         {
-            if (_listener == null)
-                throw new InvalidOperationException(
-                    $"{nameof(iOSShare)}-{nameof(SendText)}-{nameof(_listener)} not created");
+            try
+            {
+                if (_listener == null)
+                {
+                    throw new InvalidOperationException(ShareConstants.ErrorMessages.ListenerNotCreated);
+                }
 
-            _listener.ShareCompleted = callback;
-#if UNITY_IOS 
-            _ES_SendText(message);
+                _listener.ShareCompleted = sharedByActivity;
+
+#if UNITY_IOS
+                _ES_SendText(message);
 #endif
+            }
+            catch (Exception ex)
+            {
+                var errorMessage = string.Format(ShareConstants.ErrorMessages.FailedToShare, "text", ex.Message);
+                Debug.LogError($"{ShareConstants.LogPrefix} {errorMessage}");
+                throw new InvalidOperationException(errorMessage, ex);
+            }
         }
 
-        public void SendBinaryContent(string filePath, string mimeType, string message, Action<string>? callback)
+        protected override void PlatformSendBinaryContent(string filePath, string mimeType, string message,
+            Action<string>? sharedByActivity)
         {
-            if (_listener == null)
-                throw new InvalidOperationException(
-                    $"{nameof(iOSShare)}-{nameof(SendBinaryContent)}-{nameof(_listener)} not created");
+            try
+            {
+                if (_listener == null)
+                {
+                    throw new InvalidOperationException(ShareConstants.ErrorMessages.ListenerNotCreated);
+                }
 
-            _listener.ShareCompleted = callback;
-#if UNITY_IOS 
-            _ES_SendBinaryContent(message, filePath);
+                _listener.ShareCompleted = sharedByActivity;
+
+#if UNITY_IOS
+                _ES_SendBinaryContent(message, filePath);
 #endif
+            }
+            catch (Exception ex)
+            {
+                var errorMessage = string.Format(ShareConstants.ErrorMessages.FailedToShare, "binary content",
+                    ex.Message);
+                Debug.LogError($"{ShareConstants.LogPrefix} {errorMessage}");
+                throw new InvalidOperationException(errorMessage, ex);
+            }
         }
     }
 }
