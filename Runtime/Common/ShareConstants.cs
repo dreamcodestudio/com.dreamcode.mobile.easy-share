@@ -16,18 +16,6 @@ namespace DreamCode.EasyShare
         public const string EditorPackageName = "editor.package.name";
 
         /// <summary>
-        /// Common MIME types used for file sharing.
-        /// </summary>
-        public static class MimeTypes
-        {
-            public const string TextPlain = "text/plain";
-            public const string ImageJpeg = "image/jpeg";
-            public const string ImagePng = "image/png";
-            public const string ApplicationPdf = "application/pdf";
-            public const string ApplicationOctetStream = "application/octet-stream";
-        }
-
-        /// <summary>
         /// Error messages used across the package.
         /// </summary>
         public static class ErrorMessages
@@ -41,4 +29,4 @@ namespace DreamCode.EasyShare
             public const string FailedToShare = "Failed to share {0}: {1}";
         }
     }
-} 
+}
