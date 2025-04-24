@@ -52,7 +52,7 @@ namespace DreamCode.EasyShare
         /// </summary>
         /// <param name="message">Text to share</param>
         /// <param name="sharedByActivity">Optional callback when sharing is completed</param>
-        /// <exception cref="ArgumentNullException">Thrown when message is null or empty</exception>
+        /// <exception cref="ArgumentNullException">Thrown when a message is null or empty</exception>
         public static void SendText(string message, Action<string>? sharedByActivity = null)
         {
             try
